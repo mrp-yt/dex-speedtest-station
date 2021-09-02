@@ -1,5 +1,7 @@
 # DeX Speed-Test Station
 
+![Speed_Test_Exporter](/assests/images/speedtest_tracking.jpg)
+
 * This is a guide on how to setup Docker containers inside Alpine VM. Link Speed Test and Prometheus. Display Data on Grafana
   Requirements:
   - Have Alpine VM / Docker running on Termux. How to [https://github.com/mrp-yt/docker_and_portainer_on_dex](https://github.com/mrp-yt/docker_and_portainer_on_dex)
