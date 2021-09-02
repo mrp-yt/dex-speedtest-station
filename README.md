@@ -17,7 +17,7 @@ hostfwd=tcp::3000-:3000,\
 hostfwd=tcp::9091-:9091,\
 hostfwd=tcp::9080-:9080,\
 ```
-Ports used \
+Ports used are \
 `3000` - Grafana \
 `9091` - Prometheus container \
 `9080` - Speed Test container
