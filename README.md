@@ -40,10 +40,10 @@ global:
   external_labels:
     monitor: 'node'
 scrape_configs:
-  - job_name: 'prometheus'
+  - job_name: 'speed_test_prometheus'
     static_configs:
       - targets: ['100.89.90.43:9091'] ## IP Address of the localhost. This will be used for Prometheus
-  - job_name: 'node-exporter'
+  - job_name: 'speed_test'
 	static_configs:
       - targets: ['100.89.90.43:9080'] ## IP Address of the localhost. This will be used for Node-Exporter
 ```
@@ -63,13 +63,17 @@ docker run -d -p 3000:3000 --name=grafana --restart=unless-stopped grafana/grafa
 
 ### Setting up Grafana
 
-1. Open grafana web ui\
+1.	Open grafana web ui\
 `http://localhost:3000`
-2. Click on gear icon on the left and then click on *Add data source*
-3. Select *Prometheus*
-4. Give a name. Under HTTP URL enter `http://<your_device_ip>:9091`. Scroll down and click `Save & test`. You should get green test saying `Data source is working`
-5.  Mouse over plus icon and click `import`. Inside `Import via grafana.com` enter `14336` and click Load.
-6. On next page give dashboard a name and in last option select data source which one you created in step 4. Click Import.
+2.	Click on gear icon on the left and then click on *Add data source*
+3.	Select *Prometheus*
+4.	Give a name. Under HTTP URL enter `http://<your_device_ip>:9091`. Scroll down and click *Save & test*. You should get green test saying *Data source is working*
+5. 	Mouse over *plus icon* and click *import*. Inside *Import via grafana.com* enter `14336` and click Load.
+6.	On next page give dashboard a name and in last option select data source which one you created in step 4. Click Import. **All Done**
+7.	Give some time for data to show up. I suggest 1h or more. 
 
-
-	
+### Useful Info
+-	If data not showing up after 1h+ check Prometheus dashboard.
+	`http://<YOUR_DEVICE_IP>:9091/targets`\
+	You should see two targers in the list `speed_test_prometheus` and `speed_test`. Both should have green `UP` in Status column. 
+-	It takes time between Prometheus scraping data from Speed-Test container and showing up inside Grafana. If Prometheus/Targets page showing now errors and Grafana not showing any new data try to refresh Grafana dashboard by clicking *Refresh dashboard* button (top righthand coner inside Grafana Dashboard page)
