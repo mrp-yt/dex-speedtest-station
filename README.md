@@ -76,4 +76,4 @@ docker run -d -p 3000:3000 --name=grafana --restart=unless-stopped grafana/grafa
 -	If data not showing up after 1h+ check Prometheus dashboard.
 	`http://<YOUR_DEVICE_IP>:9091/targets`\
 	You should see two targers in the list `speed_test_prometheus` and `speed_test`. Both should have green `UP` in Status column. 
--	It takes time between Prometheus scraping data from Speed-Test container and showing up inside Grafana. If Prometheus/Targets page showing now errors and Grafana not showing any new data try to refresh Grafana dashboard by clicking *Refresh dashboard* button (top righthand coner inside Grafana Dashboard page)
+-	It takes time between Prometheus scraping data from Speed-Test container and showing up inside Grafana. If Prometheus/Targets page showing now errors and Grafana not showing any new data try to refresh Grafana dashboard by clicking *Refresh dashboard* button (top righthand coner inside Grafana Dashboard page).
