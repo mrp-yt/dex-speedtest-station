@@ -1,1 +1,1 @@
-# dex-speedtest-station
+# DeX Speed-Test Station
