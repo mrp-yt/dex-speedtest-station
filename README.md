@@ -4,6 +4,9 @@
   Requirements:
   - Have Alpine VM / Docker running on Termux. How to [https://github.com/mrp-yt/docker_and_portainer_on_dex](https://github.com/mrp-yt/docker_and_portainer_on_dex)
   - If you followed [my dex-monitoring-station guide](https://github.com/mrp-yt/dex-monitoring-station), you already have Grafana setup. Some of the steps can be skipped. 
+  
+* Bonus
+  - If instead using your device IP you get TailScale setup and use TailScale assigned IP you DeX device will turn in to internete testing device. Does not matter if you phone/tablet will be connected to your home boardband or 4G/5G or any Free WIFI hostposts, TailScale IP will not change and your speed-monitoring container will still function and log everything inside Grafana.
 
 ## Setup
 
