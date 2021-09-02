@@ -16,16 +16,16 @@
 	Copy / Paste code bellow in to `speed_test_prometheus.yml`
 	```
 	global:
-		scrape_interval: 5s
-		external_labels:
-			monitor: 'node'
-	scrape_configs:
-		- job_name: 'prometheus'
-		static_configs:
-			- targets: ['100.89.90.43:9090'] ## IP Address of the localhost. This will be used for Prometheus
-		- job_name: 'node-exporter'
-		static_configs:
-			- targets: ['100.89.90.43:9100'] ## IP Address of the localhost. This will be used for Node-Exporter
+  scrape_interval: 5s
+	external_labels:
+		monitor: 'node'
+scrape_configs:
+	- job_name: 'prometheus'
+	static_configs:
+		- targets: ['100.89.90.43:9090'] ## IP Address of the localhost. This will be used for Prometheus
+	- job_name: 'node-exporter'
+	static_configs:
+		- targets: ['100.89.90.43:9100'] ## IP Address of the localhost. This will be used for Node-Exporter
 	```
 	*Replace IP address to your device IP*
 	
