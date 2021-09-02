@@ -72,8 +72,10 @@ docker run -d -p 3000:3000 --name=grafana --restart=unless-stopped grafana/grafa
 3.	Select *Prometheus*
 4.	Give a name. Under HTTP URL enter `http://<YOUR_DEVICE_IP>:9091`. Scroll down and click *Save & test*. You should get green test saying *Data source is working*
 5. 	Mouse over *plus icon* and click *import*. Inside *Import via grafana.com* enter `14336` and click Load.
-6.	On next page give dashboard a name and in last option select data source which one you created in step 4. Click Import. **All Done**
-7.	Give some time for data to show up. I suggest 1h or more. 
+6.	On next page give dashboard a name and in last option select data source which one you created in step 4. Click Import.\
+	**All Done**
+
+	Give some time for data to show up. I suggest 1h or more. 
 
 ### Useful Info
 -	If data not showing up after 1h+ check Prometheus dashboard.
