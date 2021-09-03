@@ -51,7 +51,7 @@ scrape_configs:
     static_configs:
       - targets: ['100.89.90.43:9091'] ## IP Address of the localhost. This will be used for Prometheus
   - job_name: 'speed_test'
-	  static_configs:
+    static_configs:
       - targets: ['100.89.90.43:9080'] ## IP Address of the localhost. This will be used for Node-Exporter
 ```
 **Replace IP address to your device IP**
