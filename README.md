@@ -36,7 +36,7 @@ Create Prometheus directory if not exist and `speed_test_prometheus.yml` config 
 I have add `apk add nano` just in case if editor is missing. 
 ```
 apk add nano &&
-mkdir -p ~/alpine/prometheus/
+mkdir -p ~/prometheus/ &&
 nano /root/prometheus/speed_test_prometheus.yml
 ```
 Copy / Paste code bellow in to `speed_test_prometheus.yml`
