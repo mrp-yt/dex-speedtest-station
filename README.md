@@ -13,7 +13,8 @@
 ## Setup
 
 ### Setting up ports
-Add these in to `startqemu.sh` located inside `~/alpine/`. If you already have Grafana setup done, you can ignore 1st line `hostfwd=tcp::3000-:3000,\`
+Add these in to `startqemu.sh` located inside `~/alpine/`.\
+If you already have Grafana running can ignore 1st line `hostfwd=tcp::3000-:3000,\`
 ```
 hostfwd=tcp::3000-:3000,\
 hostfwd=tcp::9091-:9091,\
@@ -31,15 +32,11 @@ cd ~/alpine/ && ./startqemu.sh
 
 ### Setting up Prometheus config file
 
-If you have `/prometheus/` folder already
+Create Prometheus directory if not exist and `speed_test_prometheus.yml` config file inside.\
+I have add `apk add nano` just in case if editor is missing. 
 ```
 apk add nano &&
-nano /root/prometheus/speed_test_prometheus.yml
-```
-If you don't have prometheus folder:
-```
-apk add nano &&
-mkdir ~/alpine/prometheus/
+mkdir -p ~/alpine/prometheus/
 nano /root/prometheus/speed_test_prometheus.yml
 ```
 Copy / Paste code bellow in to `speed_test_prometheus.yml`
@@ -54,7 +51,7 @@ scrape_configs:
     static_configs:
       - targets: ['100.89.90.43:9091'] ## IP Address of the localhost. This will be used for Prometheus
   - job_name: 'speed_test'
-	static_configs:
+	  static_configs:
       - targets: ['100.89.90.43:9080'] ## IP Address of the localhost. This will be used for Node-Exporter
 ```
 **Replace IP address to your device IP**
@@ -63,7 +60,7 @@ scrape_configs:
 Containers for Speed-Test and Prometheus
 ```
 docker run -d -p 9080:9090 --name=speed_test --restart=unless-stopped danopstech/speedtest_exporter:latest &&
-docker run -d -p 9091:9090 --name=speed_test_prometheus --restart=unless-stopped -v /root/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml prom/prometheus:latest
+docker run -d -p 9091:9090 --name=speed_test_prometheus --restart=unless-stopped -v /root/prometheus/speed_test_prometheus.yml:/etc/prometheus/prometheus.yml prom/prometheus:latest
 ```
 
 If you don't have Grafana already setup
@@ -73,16 +70,16 @@ docker run -d -p 3000:3000 --name=grafana --restart=unless-stopped grafana/grafa
 
 ### Setting up Grafana
 
-1.	Open grafana WEB UI\
+1.	Open Grafana WEB UI\
 `http://localhost:3000` or `http://<YOUR_DEVICE_IP>:3000`
 2.	Click on gear icon on the left and then click on *Add data source*
 3.	Select *Prometheus*
 4.	Give a name. Under HTTP URL enter `http://<YOUR_DEVICE_IP>:9091`. Scroll down and click *Save & test*. You should get green test saying *Data source is working*
-5. 	Mouse over *plus icon* and click *import*. Inside *Import via grafana.com* enter `14336` and click Load.
+5. 	Mouse over *plus icon* and click *import*. Inside *Import via grafana.com* enter `14336` and click Load. 
 6.	On next page give dashboard a name and in last option select data source which one you created in step 4. Click Import.\
 	**All Done**
 
-	Give some time for data to show up. I suggest 1h or more. 
+	Give some time for data to show up. I suggest 30m+. 
 
 ### Useful Info
 -	If data not showing up after 1h+ check Prometheus dashboard.
