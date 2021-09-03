@@ -24,6 +24,11 @@ Ports used \
 `9091` - Prometheus container \
 `9080` - Speed Test container
 
+Start Alpine VM
+```
+cd ~/alpine/ && ./startqemu.sh
+```
+
 ### Setting up Prometheus config file
 
 If you have `/prometheus/` folder already
