@@ -5,10 +5,9 @@
 * This is a guide on how to setup Docker containers inside Alpine VM. Link Speed Test and Prometheus. Display Data on Grafana
   Requirements:
   - Have Alpine VM / Docker running on Termux. How to [https://github.com/mrp-yt/docker_and_portainer_on_dex](https://github.com/mrp-yt/docker_and_portainer_on_dex)
-  - If you followed [my dex-monitoring-station guide](https://github.com/mrp-yt/dex-monitoring-station), you already have Grafana setup. Some of the steps can be skipped. 
-  
-* Bonus
-  - If instead using your device IP you get TailScale setup and use TailScale assigned IP you DeX device will turn in to internete testing device. Does not matter if you phone/tablet will be connected to your home boardband or 4G/5G or any Free WIFI hostposts, TailScale IP will not change and your speed-monitoring container will still function and log everything inside Grafana.
+ 
+* NOTE
+  - If you will use your device local IP address instead of TailScale IP, your internet monitoring system will only capture your home broadband speed. I am using TailScale which means it does if device local IP will change. TailScale IP will always be the same. That means IP link between data scrap will not disconect.
 
 ## Setup
 
@@ -60,11 +59,7 @@ scrape_configs:
 Containers for Speed-Test and Prometheus
 ```
 docker run -d -p 9080:9090 --name=speed_test --restart=unless-stopped danopstech/speedtest_exporter:latest &&
-docker run -d -p 9091:9090 --name=speed_test_prometheus --restart=unless-stopped -v /root/prometheus/speed_test_prometheus.yml:/etc/prometheus/prometheus.yml prom/prometheus:latest
-```
-
-If you don't have Grafana already setup
-```
+docker run -d -p 9091:9090 --name=speed_test_prometheus --restart=unless-stopped -v /root/prometheus/speed_test_prometheus.yml:/etc/prometheus/prometheus.yml prom/prometheus:latest &&
 docker run -d -p 3000:3000 --name=grafana --restart=unless-stopped grafana/grafana:latest
 ```
 
