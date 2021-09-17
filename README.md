@@ -40,7 +40,7 @@ nano /root/prometheus/speed_test_prometheus.yml
 Copy / Paste code bellow in to `speed_test_prometheus.yml`
 ```
 global:
-  scrape_interval: 15m
+  scrape_interval: 30m
   scrape_timeout: 2m
   external_labels:
     monitor: 'node'
