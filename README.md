@@ -12,7 +12,7 @@
 ## Setup
 
 ### Setting up ports
-Add these in to `startqemu.sh` located inside `~/alpine/`.\
+Add these into `startqemu.sh` located inside `~/alpine/`.\
 ```
 hostfwd=tcp::3000-:3000,\
 hostfwd=tcp::9091-:9091,\
