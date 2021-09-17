@@ -13,7 +13,6 @@
 
 ### Setting up ports
 Add these in to `startqemu.sh` located inside `~/alpine/`.\
-If you already have Grafana running can ignore 1st line `hostfwd=tcp::3000-:3000,\`
 ```
 hostfwd=tcp::3000-:3000,\
 hostfwd=tcp::9091-:9091,\
