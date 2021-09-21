@@ -20,8 +20,8 @@ hostfwd=tcp::9080-:9080,\
 ```
 Ports used \
 `3000` - Grafana \
-`9091` - Prometheus container \
-`9080` - Speed Test container
+`9091` - Prometheus \
+`9080` - Speed-Test
 
 Start Alpine VM
 ```
